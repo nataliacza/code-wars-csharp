@@ -46,11 +46,6 @@ public class Persist
 			list = GenerateList(multiplyResult);
 			numberOfElements = list.Count;
 
-			if (numberOfElements == 1)
-            {
-				break;
-            }
-
 			multiplyResult = 1;
 		}
 
@@ -59,14 +54,12 @@ public class Persist
 
 	private static List<int> GenerateList(long n)
     {
-		//https://docs.microsoft.com/en-us/dotnet/api/system.char?redirectedfrom=MSDN&view=net-6.0
-
 		var asString = n.ToString();
 		var listOfDigits = new List<int>();
 
 		for (int index = 0; index < asString.Length; index++)
 		{
-			int digit = (int)Char.GetNumericValue(asString[index]);
+			int digit = int.Parse(asString[index].ToString());
 			listOfDigits.Add(digit);
 		}
 

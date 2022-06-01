@@ -13,6 +13,7 @@ Attemp:
 */
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MovingZerosToTheEnd;
 
@@ -51,16 +52,32 @@ public class Kata
         return tmp.ToArray();
     }
 
+    public static int[] MoveZeroesLinqRemove(int[] arr)
+    {
+        var list = arr.ToList();
+
+        int zeros = list.RemoveAll(z => z == 0);
+
+        for (int i = 0; i < zeros; i++)
+        {
+            list.Add(0);
+        }
+
+        return list.ToArray();
+    }
+
     public static int[] MoveZeroesIndex(int[] arr)
     {
-        if (arr.Length == 0)
+        int len = arr.Length;
+
+        if (len == 0)
         {
             return arr;
         }
 
         int flag = 0;
 
-        for (int index = 0; index < arr.Length; index++)
+        for (int index = 0; index < len; index++)
         {
             if (arr[index] != 0)
             {
@@ -69,12 +86,12 @@ public class Kata
             }
         }
 
-        while (flag < arr.Length)
+        for (int index = flag; index < len; index++)
         {
-            arr[flag] = 0;
-            flag++;
+            arr[index] = 0;
         }
 
         return arr;
     }
+
 }
