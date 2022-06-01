@@ -1,5 +1,4 @@
-﻿using FooExample;
-using IPValidation;
+﻿using IPValidation;
 using PyramidSlide;
 using CheckPrimeNumber;
 using PersistentBuggerChallenge;
@@ -36,15 +35,7 @@ class Program
         
         Console.WriteLine(result);
 
-        var test = new FooTest();
-
-        int dig = 10;
-        test.Foo(dig);
-        Console.WriteLine(dig);
-
-        test.Foo(ref dig);
-        Console.WriteLine(dig);
-
+        
 
 
         int givenNumber = 2;
@@ -62,7 +53,4 @@ class Program
         Console.WriteLine(persistentBugger);
 
     }
-
-
-
 }
