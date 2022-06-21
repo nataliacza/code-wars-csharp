@@ -1,6 +1,3 @@
-using IPValidation;
-using NUnit.Framework;
-
 /*
 TRUE
 0.0.0.0
@@ -22,72 +19,75 @@ pr12.34.56.78
 123.045.067.089
 */
 
+using IPValidation;
+using NUnit.Framework;
 
 namespace IpTests;
+
 public class IPValidationTests
 {
-    //[Test]
-    //public void ValidateIpTests_UsingRegex_ShouldReturnTrue()
-    //{
-    //    Assert.AreEqual(true, Kata.is_valid_IP_regex("0.0.0.0"));
-    //    Assert.AreEqual(true, Kata.is_valid_IP_regex("12.255.56.1"));
-    //    Assert.AreEqual(true, Kata.is_valid_IP_regex("137.255.156.100"));
-    //}
+    [Test]
+    public void ValidateIpTests_UsingRegex_ShouldReturnTrue()
+    {
+        Assert.AreEqual(true, Kata.is_valid_IP_regex("0.0.0.0"));
+        Assert.AreEqual(true, Kata.is_valid_IP_regex("12.255.56.1"));
+        Assert.AreEqual(true, Kata.is_valid_IP_regex("137.255.156.100"));
+    }
 
-    //[Test]
-    //public void ValidateIpTests_UsingRegex_ShouldReturnFalse()
-    //{
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex(""));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("abc.def.ghi.jkl"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("123.456.789.0"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.00"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.7.8"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.256.78"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("1234.34.56"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("pr12.34.56.78"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.78sf"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56 .1"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.-1"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_regex("123.045.067.089"));
-    //}
+    [Test]
+    public void ValidateIpTests_UsingRegex_ShouldReturnFalse()
+    {
+        Assert.AreEqual(false, Kata.is_valid_IP_regex(""));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("abc.def.ghi.jkl"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("123.456.789.0"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.00"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.7.8"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.256.78"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("1234.34.56"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("pr12.34.56.78"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.78sf"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56 .1"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("12.34.56.-1"));
+        Assert.AreEqual(false, Kata.is_valid_IP_regex("123.045.067.089"));
+    }
 
-    //[Test]
-    //public void ValidateIpTests_UsingSystemIP_ShouldReturnTrue()
-    //{
-    //    Assert.AreEqual(true, Kata.is_valid_IP_system("0.0.0.0"));
-    //    Assert.AreEqual(true, Kata.is_valid_IP_system("12.255.56.1"));
-    //    Assert.AreEqual(true, Kata.is_valid_IP_system("137.255.156.100"));
-    //}
+    [Test]
+    public void ValidateIpTests_UsingSystemIP_ShouldReturnTrue()
+    {
+        Assert.AreEqual(true, Kata.is_valid_IP_system("0.0.0.0"));
+        Assert.AreEqual(true, Kata.is_valid_IP_system("12.255.56.1"));
+        Assert.AreEqual(true, Kata.is_valid_IP_system("137.255.156.100"));
+    }
 
-    //[Test]
-    //public void ValidateIpTests_UsingSystemIP_ShouldReturnFalse()
-    //{
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system(""));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("abc.def.ghi.jkl"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("123.456.789.0"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.00"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.7.8"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.256.78"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("1234.34.56"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("pr12.34.56.78"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.78sf"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56 .1"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.-1"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_system("123.045.067.089"));
-    //}
-
-
+    [Test]
+    public void ValidateIpTests_UsingSystemIP_ShouldReturnFalse()
+    {
+        Assert.AreEqual(false, Kata.is_valid_IP_system(""));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("abc.def.ghi.jkl"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("123.456.789.0"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.00"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.7.8"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.256.78"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("1234.34.56"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("pr12.34.56.78"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.78sf"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56 .1"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("12.34.56.-1"));
+        Assert.AreEqual(false, Kata.is_valid_IP_system("123.045.067.089"));
+    }
 
 
-    //[Test]
-    //public void ValidateIpTests_MineAll_ShouldReturnTrue()
-    //{
-    //    Assert.AreEqual(true, Kata.is_valid_IP_mine("0.0.0.0"));
-    //    Assert.AreEqual(true, Kata.is_valid_IP_mine("12.255.56.1"));
-    //    Assert.AreEqual(true, Kata.is_valid_IP_mine("137.255.156.100"));
-    //}
+
+
+    [Test]
+    public void ValidateIpTests_MineAll_ShouldReturnTrue()
+    {
+        Assert.AreEqual(true, Kata.is_valid_IP_mine("0.0.0.0"));
+        Assert.AreEqual(true, Kata.is_valid_IP_mine("12.255.56.1"));
+        Assert.AreEqual(true, Kata.is_valid_IP_mine("137.255.156.100"));
+    }
 
     [Test]
     public void ValidateIpTests_Mine_1_ShouldReturnTrue()
@@ -111,23 +111,23 @@ public class IPValidationTests
 
 
 
-    //[Test]
-    //public void ValidateIpTests_MineAll_ShouldReturnFalse()
-    //{
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine(""));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("abc.def.ghi.jkl"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("123.456.789.0"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.00"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.7.8"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.256.78"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("1234.34.56"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("pr12.34.56.78"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.78sf"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56 .1"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.-1"));
-    //    Assert.AreEqual(false, Kata.is_valid_IP_mine("123.045.067.089"));
-    //}
+    [Test]
+    public void ValidateIpTests_MineAll_ShouldReturnFalse()
+    {
+        Assert.AreEqual(false, Kata.is_valid_IP_mine(""));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("abc.def.ghi.jkl"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("123.456.789.0"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.00"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.7.8"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.256.78"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("1234.34.56"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("pr12.34.56.78"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.78sf"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56 .1"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("12.34.56.-1"));
+        Assert.AreEqual(false, Kata.is_valid_IP_mine("123.045.067.089"));
+    }
 
     [Test]
     public void ValidateIpTests_Mine_1_ShouldReturnFalse()

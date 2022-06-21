@@ -1,8 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using System.Net;
-using System.Linq;
-
-/*
+﻿/*
 link: https://www.codewars.com/kata/515decfd9dcfc23bb6000006/csharp
 
 max 3 dots
@@ -16,6 +12,9 @@ is there build in method?
 regex help: https://www.regextester.com/
 
 */
+
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace IPValidation;
 

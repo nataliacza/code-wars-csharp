@@ -1,6 +1,4 @@
-﻿using System;
-
-/*
+﻿/*
 link: https://www.codewars.com/kata/551f23362ff852e2ab000037/csharp
 
 set counter?
@@ -57,7 +55,7 @@ public class PyramidSlideDown
                 }
             }
         }
-     
+
         return pyramid[0][0];
     }
 
