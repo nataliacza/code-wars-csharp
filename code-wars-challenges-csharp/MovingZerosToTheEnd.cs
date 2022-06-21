@@ -12,14 +12,16 @@ Attemp:
 
 */
 
-using System.Collections.Generic;
-using System.Linq;
+using BenchmarkDotNet.Attributes;
 
 namespace MovingZerosToTheEnd;
 
-public class Kata
+[MemoryDiagnoser]
+public class MoveZeroClass
 {
-    public static int[] MoveZeroes(int[] arr)
+    [Benchmark]
+    [Arguments(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1, 55, 11, 88, 100, 12, 0, 5, 4, 55, 48, 30 })]
+    public int[] MoveZeroes(int[] arr)
     {
         if (arr.Length == 0)
         {
@@ -52,7 +54,9 @@ public class Kata
         return tmp.ToArray();
     }
 
-    public static int[] MoveZeroesLinqRemove(int[] arr)
+    [Benchmark]
+    [Arguments(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1, 55, 11, 88, 100, 12, 0, 5, 4, 55, 48, 30 })]
+    public int[] MoveZeroesLinqRemove(int[] arr)
     {
         var list = arr.ToList();
 
@@ -63,10 +67,13 @@ public class Kata
             list.Add(0);
         }
 
+
         return list.ToArray();
     }
 
-    public static int[] MoveZeroesIndex(int[] arr)
+    [Benchmark]
+    [Arguments(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1, 55, 11, 88, 100, 12, 0, 5, 4, 55, 48, 30 })]
+    public int[] MoveZeroesIndex(int[] arr)
     {
         int len = arr.Length;
 
@@ -75,18 +82,18 @@ public class Kata
             return arr;
         }
 
-        int flag = 0;
+        int pointer = 0;
 
         for (int index = 0; index < len; index++)
         {
             if (arr[index] != 0)
             {
-                arr[flag] = arr[index];
-                flag++;
+                arr[pointer] = arr[index];
+                pointer++;
             }
         }
 
-        for (int index = flag; index < len; index++)
+        for (int index = pointer; index < len; index++)
         {
             arr[index] = 0;
         }
